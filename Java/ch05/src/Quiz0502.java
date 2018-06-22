@@ -42,3 +42,4 @@ public class Quiz0502 {
     	System.out.println(nSum / nCount);
     	
     }
+}
