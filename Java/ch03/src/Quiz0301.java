@@ -1,5 +1,5 @@
 
-public class Project0301 {
+public class Quiz0301 {
 
 	public static void main(String[] args) {
 		int num1 = 24;

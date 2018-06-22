@@ -10,6 +10,8 @@ public class IEIE {
 			System.out.println("0 이상 100 미만");
 		else
 			System.out.println("100 이상");
+		
+		
 	}
 
 }
