@@ -12,7 +12,7 @@ public class Quiz0508 {
 			if(num1 > 0) {
 				num1 = num1 + num2;
 		}
-			else if (num2 < 1) {
+			else(num2 < 1) {
 				System.out.println("숫자를 다시 입력하세요.");
 			}
 		

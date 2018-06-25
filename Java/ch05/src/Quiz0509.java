@@ -2,9 +2,14 @@
 public class Quiz0509 {
 
 	public static void main(String[] args) {
-		for(int i=1; i<100; i++);
+		int num = 1;
+		int sum = 0;
+		
 		do {
-			System.out.println(i % 2 == 0)
+			if(num % 2 = 0) {
+				sum = sum + num;
+			}
+			i++;
 		}
 	}
 
