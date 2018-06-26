@@ -33,7 +33,7 @@ class Book
 		MyBooks books1 = new MyBooks("게임스쿨", 10000);
 		books1.print();
 		
-		Mybooks books2 = new MyBooks(books1);
+		MyBooks books2 = new MyBooks(books1);
 		books2.title = "모바일게임";
 		books2.print();
 	}
