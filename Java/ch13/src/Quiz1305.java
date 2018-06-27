@@ -15,21 +15,20 @@ public class Quiz1305
 			array_word[i] = Character.toString(word.charAt(i));
 		}
 		
-		int sw=0;
+		int nMax1 =array_word.length;
+		int nMax2 =array_word.length/2;    //5개의 숫자는 2번만 비교하면 됨
 		
-		for(int i=0; i<arr.length/2; i++)
-		{
-			if(arr[i]!=arr[arr.length-1-i])
+		for(int i=0; i<nMax2; i++) {
+			if(!array_word[i].equals(array_word[nMax1-1-i]))
 			{
-				sw=-1;
-				break;
+				System.out.println("회문이 아닙니다." + i + " : " + array_word[nMax1-1-i]);
+				return;    // 틀리면 그냥 빠져나감
 			}
 		}
 		
-		if(sw==0)
-			System.out.println("회문입니다.");
-		else
-			System.out.println("회문이 아닙니다.");
+		System.out.println("회문입니다.");
+		
+		
 
 
 	}
