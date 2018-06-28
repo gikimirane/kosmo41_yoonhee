@@ -1,45 +1,23 @@
 import java.util.Scanner;
 
-public class Quiz0501 {
+// 사용자로부터 계속해서 정수를 입력받는다.
+// 단 0을 입력받게되면 기존에 입력받은 모든 정수를 더한후 결과를 출력하는 프로그램을 작성하시오.
 
-	public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-		
+public class Quiz0501
+{
+	public static void main(String[] args)
+	{		
 		int num = 0;
 		int num1;
+		
 		do {
-			System.out.println("첫 번째 숫자를 입력하세요.");
-		
-		num1 = s.nextInt();
-		num = num1 + num;
-		
+			Scanner s = new Scanner(System.in);
+			System.out.println("숫자를 입력하세요.");
+			
+			num1 = s.nextInt();
+			num = num1 + num;
+			
 		} while(num1 != 0);
-		
-		System.out.println("입력한 정수를 더한 결과: " + (num));
-		
-	
+		System.out.println("입력한 정수를 더한 결과: " + (num));	
 	}
-
 }
-
-      //결과보기
-        // int x = 0;
-		// int sum = 0;
-		// int num1 =1;
-		
-		// do {
-			
-			// Scanner s = new Scanner(System.in);
-			
-			// System.out.println("숫자를 입력하세요.");
-			// num1 = s.nextInt();
-			
-			// sum = sum + num1;
-			
-			// x++;
-
-		// } while (num1 != 0);
-		
-		// System.out.println("sum : " + sum);
-		
-				

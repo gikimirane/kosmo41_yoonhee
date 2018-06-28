@@ -1,26 +1,20 @@
+import java.util.Scanner;
 
-public class Quiz0302 {
+// 하나의 정수를 입력받아서 그 수의 제곱을 출력하는 프로그램을 작성하라. 
+// 가령 5를 입력받았다면 25가 출력되어야 한다.
 
-	public static void main(String[] args) {
-		int num = 5;
+public class Quiz0302
+{
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
 		
-		System.out.println("num * num = " + (num * num));
-		System.out.println("num * num * num = " + (num * num * num));
-
+		int num = 0;
 		
+		System.out.println("첫 번째 숫자를 입력하세요.");
 		
+		num = s.nextInt();
+		
+		System.out.println(num * num);
 	}
- 
 }
-
-
-
-//결과보기
-		// int num = 0;
-		
-		// Scanner s = new Scanner(System.in);
-		
-		// System.out.println("첫 번째 숫자를 입력하세요.")
-		// num1 = s.nextInt();
-		
-		// System.out.println(num1 * num1);

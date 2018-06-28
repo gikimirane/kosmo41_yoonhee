@@ -8,6 +8,26 @@ public class Quiz1308 {
 	public static void main(String[] args) {
 		int[][] arr = new int[4][4];
 		
+		switch(num) {
+		case 0:
+			System.out.println("이순신");
+			break;
+		case 1:
+			System.out.println("강감찬");
+			break;
+		case 2:
+			System.out.println("을지문덕");
+			break;
+		case 3:
+			System.out.println("권율");
+			
+			System.out.println("4명의 국사점수 입력");
+			break;
+		default:
+			break;
+	}
+	for(int j=0; j<4; j++) {
+		
 		int num = 1; 
 		num++;
 		
@@ -33,6 +53,5 @@ public class Quiz1308 {
 		
 		}
 
-	}
 
 
