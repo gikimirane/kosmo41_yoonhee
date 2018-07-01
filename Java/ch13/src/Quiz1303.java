@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//길이가 10인 배열을 선언하고 총 10개의 정수를 입력받아서 홀수와 짝수를 구분해서 출력하라.
 class Quiz1303 
 {
 	public static void main(String[] args)
@@ -25,5 +25,4 @@ class Quiz1303
 				System.out.print(arr[i]+" ");
 		}
 	}
-
 }

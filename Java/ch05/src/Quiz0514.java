@@ -8,8 +8,8 @@
 //Z * 10 + A
 //단, A와 Z는 서로다른 숫자이다.
 
-public class Quiz0514 {
-
+public class Quiz0514 
+{
 	public static void main(String[] args) 
 	{
 		for(int i=0; i<100; i++)
