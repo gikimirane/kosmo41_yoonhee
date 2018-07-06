@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ThreeByThree {
+public class E_ThreeByThree {
 	public static void main(String[] args) {
 
 		String[][] arr = { { "1", "2", "3" }, { "4", "x", "5" }, { "6", "7", "8" } };

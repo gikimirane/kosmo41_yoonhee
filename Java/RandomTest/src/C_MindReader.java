@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class MindReader
+public class C_MindReader
 {
 	public static void main(String[] args)
 	{

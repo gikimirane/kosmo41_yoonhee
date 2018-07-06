@@ -6,7 +6,7 @@ import java.util.Scanner;
 //승부를 판단하여 출력한다.
 //1,2,3 이외의 숫자를 입력하면 잘못된 입력을 알려준다.
 
-public class RPSGame
+public class A_RPSGame
 {
 	public static void main(String[] args)
 	{

@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-public class HighLowGame {
+public class B_HighLowGame {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 
