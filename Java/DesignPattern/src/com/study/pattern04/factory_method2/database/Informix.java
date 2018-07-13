@@ -1,10 +1,14 @@
-package com.study.pattern04.stretegy3;
+package com.study.pattern04.factory_method2.database;
+
+//<Summary>
+//C 'ConcreteCreator' class
+//</Summary>
 
 public class Informix extends Database {
-	Informix() {
+	
+	public Informix() {
 		name = "Informix";
-		rows = 40;
-	}
+		rows = 20;
 
 	@Override
 	public void connectDatabase() {

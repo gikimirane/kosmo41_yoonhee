@@ -1,10 +1,14 @@
-package com.study.pattern04.stretegy3;
+package com.study.pattern04.factory_method2.database;
+
+//<Summary>
+//B 'ConcreteCreator' class
+//</Summary>
 
 public class Oracle extends Database {
-	Oracle() {
+	
+	public Oracle() {
 		name = "Oracle";
-		rows = 10;
-	}
+		rows = 20;
 
 	@Override
 	public void connectDatabase() {

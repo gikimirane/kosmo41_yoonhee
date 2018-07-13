@@ -93,7 +93,7 @@ public class MultiServer6 {
 				clientMap.put(name, out);    //해쉬맵에 키를 name으로 출력스트림 객체를 저장.
 				System.out.println("현재 접속자 수는" +clientMap.size()+" 명입니다.");
 				
-				// 입력스츠림이 null이 아니면 반복
+				// 입력스트림이 null이 아니면 반복
 				String s = "";
 				while(in != null) {
 					s=in.readLine();

@@ -1,7 +1,8 @@
-package com.study.pattern04.stretegy3;
+package com.study.pattern04.factory_method2.database;
 
 public class MySQL extends Database {
-	MySQL() {
+	
+	public MySQL() {
 		name = "MySQL";
 		rows = 20;
 	}
