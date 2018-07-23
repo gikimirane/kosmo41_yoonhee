@@ -153,3 +153,7 @@ import java.util.Scanner;
 //		System.out.println("=" + sum);
 //	}
 //}
+
+//Quiz0507
+public class test {
+public static void main(String[] args) {
