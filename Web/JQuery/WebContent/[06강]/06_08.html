@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF8">
+<title></title>
+</head>
+<body>
+    <script>
+        // XMLHttpRequest 객체를 생성하는 함수
+        function createRequest() {
+        	var request;
+        	try {
+        		request = new XMLHttpRequest();
+        	} catch (exception) {
+        		try {
+        			request = new ActiveXObject('Msxm12.XMLHTTP');
+        		} catch (innerException) {
+        			request = new ActiveXObject('Microsoft.XMLHTTP');
+        		}
+        	}
+        	return request;
+        }
+    </script>
+</body>
+</html>
