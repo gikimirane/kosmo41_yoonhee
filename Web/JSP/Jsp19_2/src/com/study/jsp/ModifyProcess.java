@@ -86,7 +86,7 @@ public class ModifyProcess extends HttpServlet {
 				System.out.println("insert fail");
 				
 				PrintWriter writer = response.getWriter();
-				writer.println("[{\"result\":\"fail\",\"desc\":\":\" 패스워드가 일치하지 않습니다.\"}]");
+				writer.println("[{\"result\":\"fail\",\"desc\":\":\" 패스워드가 안맞아!!\"}]");
 				
 				/*response.sendRedirect("Modify.jsp");*/
 				
@@ -101,6 +101,7 @@ public class ModifyProcess extends HttpServlet {
 		}
 	}
 	
+	//비밀번호까지 똑같아야 정보수정 가능한 메소드
 	private boolean pwConfirm() {
 		boolean rs = false;
 		

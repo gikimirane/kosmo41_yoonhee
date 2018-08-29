@@ -28,6 +28,7 @@ public class JoinProcess extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		// 내가 뭘하든 URL에 다 표시가 되는 것
 		System.out.println("doGet");
 		actionDo(request, response);
 	}
@@ -35,6 +36,7 @@ public class JoinProcess extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		// URL에 다 표시 안됨
 		System.out.println("doPost");
 		actionDo(request, response);
 	}
@@ -52,11 +54,13 @@ public class JoinProcess extends HttpServlet {
 		phone3 = request.getParameter("phone3");
 		gender = request.getParameter("gender");
 		
+		// member 테이블에 이런 형식으로 넣을거야.
 		String query = "insert into member values(?, ?, ?, ?, ?)";
 		
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, uid, upw);
+			// 최초의 한번만 무결성을 검사를 하고 정상이면 이제 검사 안하고 바로바로 넣어서 과부화를 막는다.
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);
@@ -68,9 +72,13 @@ public class JoinProcess extends HttpServlet {
 		
 			PrintWriter writer = response.getWriter();
 			
+			// 한사람이 가입하니까 1명
 			if(updateCount == 1) {
 				System.out.println("insert success");
 				
+				// result가 ok이면 desc를 보여준다.
+				// 역슬래시는 json으로 보겠다 라는 뜻이다.
+				// ok이가 아니면 catch로 넘어가서 다 실패!
 				writer.println("[{\"result\":\"ok\",\"desc\":\"none\"}]" );
 			}
 			
@@ -80,7 +88,7 @@ public class JoinProcess extends HttpServlet {
 			System.out.println("insert fail");
 			
 			PrintWriter writer = response.getWriter();
-			writer.println("[{\"result\":\"fail\",\"desc\":\":\" 이미 사용중인 아이디가 있습니다.\"}]");
+			writer.println("[{\"result\":\"fail\",\"desc\":\":\" 이미 사용중이야.\"}]");
 			
 			writer.close();
 		} finally {

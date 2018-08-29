@@ -17,11 +17,17 @@
 		name = (String)session.getAttribute("name");
 		id = (String)session.getAttribute("id");
 		pw = (String)session.getAttribute("pw");
+		
+    	if(id == null) {
+    		response.sendRedirect("Login.jsp");
+    	} 
 	%>
 	
-	<%= name %>님 안녕하세요 <br><p>
+	<%= name %>야 환영해! <br><p>
 	
-	<a href="Modify.jsp">회원정보 수정</a>
+	<a href="Modify.jsp">회원정보 수정 </a> &nbsp;&nbsp;
+	<a href="sessiontest.jsp">세션테스트 </a> &nbsp;&nbsp;
+	<a href="Logout.jsp">로그아웃 </a>
 	
 </body>
 </html>

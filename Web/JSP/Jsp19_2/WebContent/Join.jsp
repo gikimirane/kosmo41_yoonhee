@@ -5,18 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery.js"></script>
+<title>회원가입</title>
 
 	<script>
 	var queryString;
 	
 	function form_check() {
-		queryString = $('#JoinProcess').serialize();
-		
-		alert(queryString);
 		submit_ajax();
 	}
 	
 	function submit_ajax() {
+		
+		//id를 가져오기때문에 name과 id를 같은 것을 쓴다.
+		queryString = $('#JoinProcess').serialize();
+		alert(queryString);
+		
 		$.ajax({
 			/* 가져오고자하는 서버페이지 주소를 넣는다. */
 			url : '/Jsp19_2/JoinProcess',
@@ -30,18 +33,17 @@
 				var result = eval(json);
 				/* alert(result[0].result + ":" +result[0].desc); */
 				if (result[0].result=="ok") {
-					alert("정상 가입되었습니다.")
+					alert("축하해 가입했어!")
 					window.location.replace("Login.jsp");
 				} else {
-					alert("실패하였습니다.")
+					alert("가입 실패야, 어째.")
 					alert(results[0].desc);
 				}
 			}
 		});
 	}
 	</script>
-	
-<title>회원가입</title>
+
 </head>
 <body>
 

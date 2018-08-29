@@ -23,18 +23,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery.js"></script>
+<title>수정</title>
 
 	<script>
 	var queryString;
 	
 	function form_check() {
-		queryString = $('#ModifyProcess').serialize();
 		
-		alert(queryString);
 		submit_ajax();
 	}
 	
 	function submit_ajax() {
+		queryString = $('#LoginProcess').serialize();
+		alert(queryString);
+		
 		$.ajax({
 			/* 가져오고자하는 서버페이지 주소를 넣는다. */
 			url : '/Jsp19_2/ModifyProcess',
@@ -46,12 +48,12 @@
 			success : function(json) {
 				/* alert(json); */
 				var result = eval(json);
-				 alert(result[0].result + ":" +result[0].desc);
+				 /* alert(result[0].result + ":" +result[0].desc);*/
 				if (result[0].result=="ok") {
-					alert("수정을 완료되었습니다.")
-					window.location.replace("Login.jsp");
+					alert("로그인 됐어.")
+					window.location.replace("LoginResult.jsp");
 				} else {
-					alert("수정을 실패하였습니다.")
+					alert("로그인 다시해.")
 					alert(results[0].desc);
 				}
 			}
@@ -59,31 +61,35 @@
 	}
 	</script>
 	
-<title>수정</title>
 </head>
 <body>
 
 	<%
 		id = (String)session.getAttribute("id");
+	
+		if(id == null) {
+			response.sendRedirect("Login.jsp");
+			} else {
+	
+				String query = "select * from member where id = '" + id + "'";
+				
+				Class.forName(driver);
+				con = DriverManager.getConnection(url, uid, upw);
+				stmt = con.createStatement();
+				resultSet = stmt.executeQuery(query);
+				
+				String phone = "";
+				while(resultSet.next()) {
+					name = resultSet.getString("name");
+					pw = resultSet.getString("pw");
+					phone = resultSet.getString("phone");
+					gender = resultSet.getString("gender");
+			}
 		
-		String query = "select * from member where id = '" + id + "'";
+			phone1 = phone.substring(0, 3);
+			phone2 = phone.substring(4, 8);
+			phone3 = phone.substring(9, 13);
 		
-		Class.forName(driver);
-		con = DriverManager.getConnection(url, uid, upw);
-		stmt = con.createStatement();
-		resultSet = stmt.executeQuery(query);
-		
-		String phone = "";
-		while(resultSet.next()) {
-			name = resultSet.getString("name");
-			pw = resultSet.getString("pw");
-			phone = resultSet.getString("phone");
-			gender = resultSet.getString("gender");
-		}
-		
-		phone1 = phone.substring(0, 3);
-		phone2 = phone.substring(4, 8);
-		phone3 = phone.substring(9, 13);
 	%>
 	
 	<form name="ModifyProcess" id="ModifyProcess">
@@ -112,6 +118,7 @@
 		성별구분 : <input type="radio" name="gender" value="man">남 &nbsp;
 				   <input type="radio" name="gender" value="woman" checked="checked">여 <br>
 		<%
+				}
 			}
 		%>
 		<input type="button" value="정보수정" onclick="form_check()" />
