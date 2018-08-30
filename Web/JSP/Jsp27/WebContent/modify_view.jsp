@@ -15,7 +15,7 @@
 
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<form name="modify_form" action="modify.do" method="post">
-			<input type="hidden" name="bId" value="${content_veiw.bId}">
+			<input type="hidden" name="bId" value="${content_view.bId}">
 			<tr>
 				<td>번호</td>
 				<td> ${content_view.bId} </td>
@@ -41,7 +41,7 @@
 				<td colspan="2">
 				<a href="Javascript:form_check()">수정완료</a> &nbsp;&nbsp;
 				<a href="content_view.do?bId=${content_view.bId}">취소</a> &nbsp;&nbsp;
-				<a href="list.do">목록보기</a> &nbsp;&nbsp;
+				<a href="list.do?page=<%= session.getAttribute("cpage") %>">목록보기</a> &nbsp;&nbsp;
 			</tr>
 		</form>
 	</table>
