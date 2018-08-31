@@ -83,7 +83,7 @@
 				[ &gt;&gt; ]	
 			</c:when>
 			<c:otherwise>
-				<a href="list.do?page=${page.endPage}">[ &gt;&gt; ]</a>
+				<a href="list.do?page=${page.totalPage}">[ &gt;&gt; ]</a>
 			</c:otherwise>
 			</c:choose>
 			</td>
