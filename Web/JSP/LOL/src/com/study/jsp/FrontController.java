@@ -71,12 +71,12 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "loginOk.jsp";
 			
-//		} else if (com.equals("/modifyOk.do")) {
-//			modifyOk service = new modifyOk();
-//			service.execute(request, response);
-//			
-//		} else if (com.equals("/logoutOk.do")) {
-//			logoutOk(request, response);
+		} else if (com.equals("/modifyOk.do")) {
+			command.execute(request, response);
+			viewPage = "modifyOk.jsp";
+			
+		} else if (com.equals("/logoutOk.do")) {
+			command.execute(request, response);
 			
 		} else if (com.equals("/write_view.do")) {
 			viewPage = "write_view.jsp";

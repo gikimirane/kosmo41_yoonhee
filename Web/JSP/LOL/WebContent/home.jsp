@@ -23,7 +23,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light .table-dark">
-  <a class="navbar-brand" href="#">LOL</a>
+  <a class="navbar-brand" href="#">LOVE MYSELF</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -38,30 +38,28 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Shop
+          Customer Service
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Cosmetic</a>
-          <a class="dropdown-item" href="#">Fashion</a>
+          <a class="dropdown-item" href="#">Q & A</a>
+          <a class="dropdown-item" href="#">1:1 Conversation</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="#">☎02-1234-5678</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
-	  <input class="form-control mr-sm-2" type="Password" name="pw" placeholder="Password" aria-label="Password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" redirectUrl = "list.do">Login</button> &nbsp;
-      
-<!--       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" a href="logout.jsp">Logout</button> &nbsp; -->
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="javascript:window.location='join.jsp'; return false;">Join</a></button> &nbsp;&nbsp;&nbsp;
+<%--  <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
+	  <input class="form-control mr-sm-2" type="Password" name="pw" placeholder="Password" aria-label="Password"> --%>
+<!--  <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
+      <button class="btn btn-sm btn-outline-secondary" type="submit"
+      	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
+      <button class="btn btn-sm btn-outline-secondary" type="submit"
+      	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <!-- target="_blank" window.open(this.href, '', 'width=400, height=430');  -->
-      
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
@@ -71,22 +69,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-	<center>
 	<table width="800" class="table table-striped">
 		<thead class="thead-dark">
 		<tr>
 			<th scope="col"></th>
 		</tr>
 	</table>
-	<table border=1 bordercolor=black cellpadding=0 cellspacing="0" width="1000" height="750">
-		<tr>
-			<td colspan=2 width=100% height=150>
-			<img src=".img/beach.jpg" width=1000 height=150>
-			<img src=".img/ra.jpg" width=1000 height=150>
-			</td>
-		</tr>
-	</table>
-	</center>
+	
+	 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
+          <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+        </div>
+      </div>
+      
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Featured post</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Design</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Post title</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>

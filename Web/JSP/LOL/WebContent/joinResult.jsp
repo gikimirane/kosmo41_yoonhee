@@ -10,7 +10,7 @@
 
 회원가입이 정상 처리 되었습니다. <br><p>
 
-<a href="Login.jsp">로그인</a>
+<a href="Login.do">로그인</a>
 
 </body>
 </html>

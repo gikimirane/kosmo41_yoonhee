@@ -23,7 +23,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light .table-dark">
-  <a class="navbar-brand" href="#">LOL</a>
+  <a class="navbar-brand" href="#">LOVE MYSELF</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -38,31 +38,27 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Shop
+          Customer Service
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="http://blog .naver.com/oh_nle">Cosmetic</a>
-          <a class="dropdown-item" href="#">Fashion</a>
+          <a class="dropdown-item" href="#">Q & A</a>
+          <a class="dropdown-item" href="#">1:1 Conversation</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="#">☎02-1234-5678</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="loginOk.do">
-      <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
-	  <input class="form-control mr-sm-2" type="Password" name="pw" placeholder="Password" aria-label="Password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" redirectUrl = "list.do">Login</button> &nbsp;
-      
-     <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" a href="logout.jsp">Logout</button> &nbsp; -->
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="javascript:window.location='join.jsp'; return false;">Join</a></button> &nbsp;&nbsp;&nbsp;
+    <form class="form-inline my-2 my-lg-0">
+<%--  <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
+	  <input class="form-control mr-sm-2" type="Password" name="pw" plac eholder="Password" aria-label="Password"> --%>
+      <button class="btn btn-sm btn-outline-secondary" type="submit"
+      	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
+      <button class="btn btn-sm btn-outline-secondary" type="submit"
+      	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <!-- target="_blank" window.open(this.href, '', 'width=400, height=430');  -->
-      
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-<!--       request.setAttribute("list", dao.listBoard(pageNumber, keyField, keyWord)); -->
     </form>
   </div>
 </nav>
@@ -73,7 +69,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 	<div style="text-align:center">
-	<table width="800" class="table table-striped">
+	<table width="1000" class="table table-striped">
 		<thead class="thead-dark">
 		<tr>
 			<th scope="col">번호</th>
@@ -96,7 +92,11 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5"> <a href="write_view.do">글작성</a> </td>
+			<td colspan="5">
+			<input class="btn btn-sm btn-outline-secondary" type="search" placeholder="Search" aria-label="Search" />
+      		<button class="btn btn-sm btn-outline-secondary" type="submit">검색</button>
+      		<button class="btn btn-sm btn-outline-secondary" type="submit"><a href="write_view.do">글작성</a></button></td>
+      		<!-- btn btn-outline-success my-2 my-sm-0 -->
 		</tr>
 		<tr>
 			<td colspan="5">

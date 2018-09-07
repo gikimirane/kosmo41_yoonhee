@@ -21,11 +21,11 @@ public class loginOk implements service {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
-		System.out.println("loginOk");
+		System.out.println("'id'님 환영합니다.");
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
+		                           
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberDTO dto = dao.getMember(id);
 		int checkNum = dao.userCheck(id, pw);
