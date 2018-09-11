@@ -11,7 +11,7 @@
 
 
 	<table cellpadding="0" cellspacing="0" border="1">
-		<form action="write.do" method="post">
+		<form action="write.do" method="post" enctype="multipart/form-data">
 			<tr>
 				<td> 이름 </td>
 				<td> <input type="text" name="bName" size = "50"> </td>
@@ -24,7 +24,7 @@
 				<td> 내용 </td>
 				<td>
 					<!-- <textarea name="bContent" rows = "10"> </textarea> -->
-					<textarea name="bContent" id="editor1" rows="10" cols="80">
+					<textarea name="bContent" id="editor1" rows="10" cols="100">
                 	This is my textarea to be replaced with CKEditor.
             		</textarea>
             		<script>
@@ -32,6 +32,10 @@
                 	// instance, using default configuration.
                 	CKEDITOR.replace( 'editor1' );
             		</script>
+			</tr>
+			<tr>
+				<td>파일명 :</td>
+				<td><input type="file" name="bFilename" value="${content_view.bFilename}"></td>
 			</tr>
 			<tr>
 				<td colspan="2">

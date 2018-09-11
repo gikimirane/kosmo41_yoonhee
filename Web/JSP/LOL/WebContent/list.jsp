@@ -23,7 +23,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light .table-dark">
-  <a class="navbar-brand" href="#">LOVE MYSELF</a>
+  <a class="navbar-brand" href="#">KOSMO41</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,18 +31,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.do">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home.do">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="list.do">Notice Board</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Customer Service
+          Contact
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Q & A</a>
-          <a class="dropdown-item" href="#">1:1 Conversation</a>
+          <a class="dropdown-item" href="#">PhoneBook</a>
+          <a class="dropdown-item" href="#">Conversation</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -52,13 +52,10 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-<%--  <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
-	  <input class="form-control mr-sm-2" type="Password" name="pw" plac eholder="Password" aria-label="Password"> --%>
       <button class="btn btn-sm btn-outline-secondary" type="submit"
       	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
       <button class="btn btn-sm btn-outline-secondary" type="submit"
       	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <!-- target="_blank" window.open(this.href, '', 'width=400, height=430');  -->
     </form>
   </div>
 </nav>
@@ -77,6 +74,7 @@
       		<th scope="col">제목</th>
       		<th scope="col">날짜</th>
       		<th scope="col">히트</th>
+      		<th scope="col">파일</th>
 		</tr>
 		</thead>
 		<c:forEach items="${list}" var="dto">
@@ -89,14 +87,22 @@
 				<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
 			<td>${dto.bDate}</td>
 			<td>${dto.bHit}</td>
+			<td>${dto.bFilename}</td>
 		</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="5">
-			<input class="btn btn-sm btn-outline-secondary" type="search" placeholder="Search" aria-label="Search" />
-      		<button class="btn btn-sm btn-outline-secondary" type="submit">검색</button>
-      		<button class="btn btn-sm btn-outline-secondary" type="submit"><a href="write_view.do">글작성</a></button></td>
-      		<!-- btn btn-outline-success my-2 my-sm-0 -->
+      		<div id="searchform" align="center">
+      			<form action="list.do" method="get">
+      				<select name="listselect" class="btn btn-sm btn-outline-secondary">
+      					<option value="jm">제목</option>
+      					<option value="ny">내용</option>
+      				</select>
+      				<input class="btn btn-sm btn-outline-secondary" type="text" name="listname" placeholder="Search" aria-label="Search" />
+      				<button class="btn btn-sm btn-outline-secondary" type="submit">검색</button>
+      				<button class="btn btn-sm btn-outline-secondary" type="submit"><a href="write_view.do">글작성</a></button></td>
+      			</form>
+      		</div>
 		</tr>
 		<tr>
 			<td colspan="5">

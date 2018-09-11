@@ -8,11 +8,15 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
+
+import oracle.net.aso.b;
 
 
 public class BDao {
 	
+	private static final String Search = null;
 	private static BDao instance = new BDao();
 	DataSource dataSource = null;
 
@@ -33,18 +37,20 @@ public class BDao {
 		return instance;
 	}
 	
-	public void write(String bName, String bTitle, String bContent) {
+	public void write(String bName, String bTitle, String bContent, String bFilename) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String query = "insert into mvc_board" +
-					   " (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) " +
+					   " (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent, bFilename) " +
 					   " values " +
-					   " (mvc_board_seq.nextval, ?, ?, ?, 0, mvc_board_seq.currval, 0, 0 )";
+					   " (mvc_board_seq.nextval, ?, ?, ?, 0, mvc_board_seq.currval, 0, 0, ?)";
 		System.out.println(query);
 		System.out.println(bName);
 		System.out.println(bTitle);
 		System.out.println(bContent);
+		System.out.println(bFilename);
+		
 		
 		try {
 			con = dataSource.getConnection();
@@ -52,6 +58,7 @@ public class BDao {
 			pstmt.setString(1, bName);
 			pstmt.setString(2, bTitle);
 			pstmt.setString(3, bContent);
+			pstmt.setString(4, bFilename);
 			int rn = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,7 +72,13 @@ public class BDao {
 		}
 	}
 	
-	public ArrayList<BDto> list(int curPage) {
+	public ArrayList<BDto> list(int curPage, HttpServletRequest request) {
+		
+		String listselect = request.getParameter("listselect");
+		String listname = request.getParameter("listname");
+		
+		if(listname == null || listname.isEmpty())
+			System.out.println("class dbao list get Search: + Search");
 		
 		ArrayList<BDto> dtos = new ArrayList<BDto>();
 		Connection con = null;
@@ -84,17 +97,23 @@ public class BDao {
 		
 		try {
 			con = dataSource.getConnection();
+			String query = null;
 			
-			String query = 
-					"select * " + 
-					"  from ( " + 
-					"   select rownum num, A.* " + 
-					"     from ( " + 
-					"        select * " + 
-					"          from mvc_board " + 
-					"         order by bgroup desc, bstep asc ) A " + 
-					"    where rownum <= ? ) B " + 
-					"where B.num >= ?";
+			if(listname == null || listname.isEmpty()) {
+				query = "select * " + 
+						"  from ( " + 
+						"   select rownum num, A.* " + 
+						"     from ( " + 
+						"        select * " + 
+						"          from mvc_board " + 
+						"         order by bgroup desc, bstep asc ) A " + 
+						"    where rownum <= ? ) B " + 
+						"where B.num >= ?";
+			} else if(listname != null) {
+				query = "select * from (select rownum num, A.* from (select * from mvc_board where bTitle like '%\"+listname+\"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
+			} else {
+				 query = "select * from (select rownum num, A.* from (select * from mvc_board where bContent like '%"+listname+"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
+			}
 			
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, nEnd);
@@ -111,9 +130,10 @@ public class BDao {
 				int bGroup = resultSet.getInt("bGroup");
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
+				String bFilename = resultSet.getString("bFilename");
 				
 				BDto dto = new BDto(bId, bName, bTitle, bContent, bDate,
-									bHit, bGroup, bStep, bIndent);
+									bHit, bGroup, bStep, bIndent, bFilename);
 				dtos.add(dto);
 			}
 			
@@ -220,9 +240,10 @@ public class BDao {
 				int bGroup = resultSet.getInt("bGroup");
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
+				String bFilename = resultSet.getString("bFilename");
 				
 				dto = new BDto(bId, bName, bTitle, bContent, bDate,
-						       bHit, bGroup, bStep, bIndent);
+						       bHit, bGroup, bStep, bIndent, bFilename);
 			}
 			
 		} catch (Exception e) {
@@ -294,6 +315,7 @@ public class BDao {
 			}
 		}
 	}
+	
 	public void delete(String bId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -315,6 +337,10 @@ public class BDao {
 				e2.printStackTrace();
 			}
 		}
+	}
+	
+	public void search (String bTitle, String bContent) {
+		
 	}
 	
 	public BDto reply_View(String str) {
@@ -341,9 +367,10 @@ public class BDao {
 				int bGroup = resultSet.getInt("bGroup");
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
+				String bFilename = resultSet.getString("bFilename");
 				
 				dto = new BDto(bId, bName, bTitle, bContent, bDate,
-						       bHit, bGroup, bStep, bIndent);
+						       bHit, bGroup, bStep, bIndent, bFilename);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -359,7 +386,7 @@ public class BDao {
 	}
 
 	public void reply(String bId, String bName, String bTitle, String bContent,
-			String bGroup, String bStep, String bIndent)
+			String bGroup, String bStep, String bIndent, String bFilename)
 	{
 		replyShape(bGroup, bStep);
 		
@@ -369,8 +396,8 @@ public class BDao {
 		try {
 			con = dataSource.getConnection();
 			String query = "insert into mvc_board " +
-						   " (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) " +
-						   " values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?)";
+						   " (bId, bName, bTitle, bContent, bGroup, bStep, bIndent, bFilename) " +
+						   " values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(query);
 			
 			pstmt.setString(1, bName);
@@ -379,6 +406,7 @@ public class BDao {
 			pstmt.setInt(4, Integer.parseInt(bGroup));
 			pstmt.setInt(5, Integer.parseInt(bStep) + 1);
 			pstmt.setInt(6, Integer.parseInt(bIndent) + 1);
+			pstmt.setString(7, bFilename);
 			
 			int rn = pstmt.executeUpdate();
 		} catch (Exception e) {

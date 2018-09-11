@@ -13,12 +13,13 @@
 	}
 </script>
 <body>
-
-	
-	
-	<table width="500" cellpadding="0" cellspacing="0" border="1">
+	<center>
+	<table width="750" cellpadding="0" cellspacing="0" border="1">
 		<form name="modify_form" action="modify.do" method="post">
 			<input type="hidden" name="bId" value="${content_view.bId}">
+			<tr>
+				<td colspan="2" align="center"> <h3>문서 수정 폼</h3>
+			</tr>
 			<tr>
 				<td>번호</td>
 				<td> ${content_view.bId} </td>
@@ -37,7 +38,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td> <textarea name="ir1" id="ir1" rows="10" cols="100">${content_view.bContent}</textarea>
+				<td> <textarea name="bContent" id="bContent" rows="10" cols="80">${content_view.bContent}</textarea>
 				<script type="text/javascript">
 					var oEditors = [];
 					nhn.husky.EZCreator.createInIFrame({
@@ -50,13 +51,18 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-				<a href="Javascript:form_check()">수정완료</a> &nbsp;&nbsp;
+				<td>파일명</td>
+				<td><input type="file" name="bFilename"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="submit" value="수정완료"> &nbsp;&nbsp;
 				<a href="content_view.do?bId=${content_view.bId}">취소</a> &nbsp;&nbsp;
-				<a href="list.do?page=<%= session.getAttribute("cpage") %>">목록보기</a> &nbsp;&nbsp;
+				<a href="list.do?page=<%= session.getAttribute("cpage") %>">목록보기</a> &nbsp;&nbsp;</td>
 			</tr>
 		</form>
 	</table>
+	</center>
 
 </body>
 </html>

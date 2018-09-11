@@ -13,10 +13,12 @@ import javax.servlet.http.HttpSession;
 import com.study.jsp.command.BCommand;
 import com.study.jsp.command.BContentCommand;
 import com.study.jsp.command.BDeleteCommand;
+import com.study.jsp.command.BDownloadCommand;
 import com.study.jsp.command.BListCommand;
 import com.study.jsp.command.BModifyCommand;
 import com.study.jsp.command.BReplyCommand;
 import com.study.jsp.command.BReplyVIewCommand;
+import com.study.jsp.command.BSearchCommand;
 import com.study.jsp.command.BWriteCommand;
 
 @WebServlet("*.do")
@@ -66,40 +68,47 @@ public class FrontController extends HttpServlet {
 		if (com.equals("/joinOk.do")) {
 			command.execute(request, response);
 			viewPage = "joinOk.jsp";
+			DispatcherviewPage(request, response, viewPage);
 					
 		} else if (com.equals("/loginOk.do")) {
 			command.execute(request, response);
 			viewPage = "loginOk.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/modifyOk.do")) {
 			command.execute(request, response);
 			viewPage = "modifyOk.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/logoutOk.do")) {
-			command.execute(request, response);
 			
 		} else if (com.equals("/write_view.do")) {
 			viewPage = "write_view.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/write.do")) {
 			command = new BWriteCommand();
 			command.execute(request, response);
 			viewPage = "list.do";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/list.do")) {
 			command = new BListCommand();
 			command.execute(request, response);
 			viewPage = "list.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/content_view.do")) {
 			command = new BContentCommand();
 			command.execute(request, response);
 			viewPage = "content_view.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/modify_view.do")) {
 			command = new BContentCommand();
 			command.execute(request, response);
 			viewPage = "modify_view.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/modify.do")) {
 			command = new BModifyCommand();
@@ -107,28 +116,40 @@ public class FrontController extends HttpServlet {
 			command = new BContentCommand();
 			command.execute(request, response);
 			viewPage = "content_view.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/delete.do")) {
 			command = new BDeleteCommand();
 			command.execute(request, response);
 			viewPage = "list.do?page="+curPage;
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/reply_view.do")) {
 			command = new BReplyVIewCommand();
 			command.execute(request, response);
 			viewPage = "reply_view.jsp";
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if (com.equals("/reply.do")) {
 			command = new BReplyCommand();
 			command.execute(request, response);
 			viewPage = "list.do?page="+curPage;
+			DispatcherviewPage(request, response, viewPage);
 			
 		} else if(com.equals("/home.do")) {
 			viewPage = "home.jsp";
+			DispatcherviewPage(request, response, viewPage);
+			
+		} else if(com.equals("/search.do")) {
+			command = new BSearchCommand();
+			command.execute(request, response);
+			viewPage = "list.jsp";
+			DispatcherviewPage(request, response, viewPage);
+			
+		} else if(com.equals("/download.do")) {
+			command = new BDownloadCommand();
+			command.execute(request, response);
 		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
 	}
 
 	private void logoutOk(HttpServletRequest request, HttpServletResponse response)
@@ -141,4 +162,12 @@ public class FrontController extends HttpServlet {
 		session.invalidate();
 		response.sendRedirect("loginOk.jsp");
 	}
+	
+	private void DispatcherviewPage(HttpServletRequest request, HttpServletResponse response, String viewPage)
+			throws ServletException, IOException
+	{
+		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+		dispatcher.forward(request, response);
+	}
+	
 }

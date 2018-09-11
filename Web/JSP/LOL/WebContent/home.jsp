@@ -23,7 +23,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light .table-dark">
-  <a class="navbar-brand" href="#">LOVE MYSELF</a>
+  <a class="navbar-brand" href="#">KOSMO41</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -38,11 +38,11 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Customer Service
+          Contact
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Q & A</a>
-          <a class="dropdown-item" href="#">1:1 Conversation</a>
+          <a class="dropdown-item" href="#">PhoneBook</a>
+          <a class="dropdown-item" href="#">Conversation</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -59,7 +59,6 @@
       	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
       <button class="btn btn-sm btn-outline-secondary" type="submit"
       	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <!-- target="_blank" window.open(this.href, '', 'width=400, height=430');  -->
     </form>
   </div>
 </nav>
@@ -78,7 +77,7 @@
 	
 	 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
-          <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
+          <h1 class="display-4 font-italic">KOSMO 41기 공식 홈페이지</h1>
           <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
           <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
         </div>
@@ -88,29 +87,29 @@
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <strong class="d-inline-block mb-2 text-primary">Notice</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">Featured post</a>
+                <a class="text-dark" href="#">Lunch Menu</a>
               </h3>
               <div class="mb-1 text-muted">Nov 12</div>
               <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
               <a href="#">Continue reading</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+            <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
           </div>
         </div>
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Design</strong>
+              <strong class="d-inline-block mb-2 text-success">Notice</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">Post title</a>
+                <a class="text-dark" href="#">Homework</a>
               </h3>
               <div class="mb-1 text-muted">Nov 11</div>
               <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
               <a href="#">Continue reading</a>
             </div>
-            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+            <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
           </div>
         </div>
       </div>

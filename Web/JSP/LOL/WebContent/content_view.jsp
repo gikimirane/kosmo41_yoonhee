@@ -5,9 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
+<script>
+function onDownload(bId) {
+	var o = document.getElementById("ifrm_filedown");
+	o.src="download.do?bId="+bId;
+}
+</script>
 </head>
 <body>
-
+	<iframe id="ifrm_filedown" style="position:absoluste; z-index:1; visibility : hidden;"></iframe>
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 	<tr>
 		<td>번호</td>
@@ -29,6 +35,12 @@
 		<td>내용</td>
 		<td>
 			${content_view.bContent}
+		</td>
+	</tr>
+	<tr>
+		<td>파일명</td>
+		<td>
+			<a href="#" onclick="onDownload('${content_view.bId}')">${content_view.bFilename}</a>
 		</td>
 	</tr>
 	<tr>

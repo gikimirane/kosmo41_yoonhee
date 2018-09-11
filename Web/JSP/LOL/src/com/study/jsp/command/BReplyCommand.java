@@ -17,9 +17,10 @@ public class BReplyCommand implements BCommand {
 		String bGroup = request.getParameter("bGroup");
 		String bStep = request.getParameter("bStep");
 		String bIndent = request.getParameter("bIndent");
+		String bFilename = request.getParameter("bFilename");
 		
 		BDao dao = BDao.getInstance();
-		dao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
+		dao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent, bFilename);
 	}
 
 }
