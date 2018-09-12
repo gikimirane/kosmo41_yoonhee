@@ -74,12 +74,6 @@ public class BDao {
 	
 	public ArrayList<BDto> list(int curPage, HttpServletRequest request) {
 		
-		String listselect = request.getParameter("listselect");
-		String listname = request.getParameter("listname");
-		
-		if(listname == null || listname.isEmpty())
-			System.out.println("class dbao list get Search: + Search");
-		
 		ArrayList<BDto> dtos = new ArrayList<BDto>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -97,9 +91,11 @@ public class BDao {
 		
 		try {
 			con = dataSource.getConnection();
+			String list_select = request.getParameter("list_select");
+			String list_name = request.getParameter("list_name");
 			String query = null;
 			
-			if(listname == null || listname.isEmpty()) {
+			if(list_select == null || list_select.isEmpty()) {
 				query = "select * " + 
 						"  from ( " + 
 						"   select rownum num, A.* " + 
@@ -109,10 +105,11 @@ public class BDao {
 						"         order by bgroup desc, bstep asc ) A " + 
 						"    where rownum <= ? ) B " + 
 						"where B.num >= ?";
-			} else if(listname != null) {
-				query = "select * from (select rownum num, A.* from (select * from mvc_board where bTitle like '%\"+listname+\"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
+				
+			} else if(list_name != null) {
+				query = "select * from (select rownum num, A.* from (select * from mvc_board where bTitle like '%\"+list_name+\"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
 			} else {
-				 query = "select * from (select rownum num, A.* from (select * from mvc_board where bContent like '%"+listname+"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
+				 query = "select * from (select rownum num, A.* from (select * from mvc_board where bContent like '%"+list_name+"%' order by bgroup desc, bstep asc ) A where rownum <= ? ) B where B.num >= ?";
 			}
 			
 			pstmt = con.prepareStatement(query);

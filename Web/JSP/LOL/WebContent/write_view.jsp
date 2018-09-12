@@ -9,7 +9,7 @@
 </head>
 <body>
 
-
+	<center>
 	<table cellpadding="0" cellspacing="0" border="1">
 		<form action="write.do" method="post" enctype="multipart/form-data">
 			<tr>
@@ -45,6 +45,7 @@
 			</tr>
 		</form>
 	</table>
+	</center>
 
 </body>
 </html>

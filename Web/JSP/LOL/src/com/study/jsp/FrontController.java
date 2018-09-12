@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.Service;
+
 import com.study.jsp.command.BCommand;
 import com.study.jsp.command.BContentCommand;
 import com.study.jsp.command.BDeleteCommand;
@@ -20,6 +22,7 @@ import com.study.jsp.command.BReplyCommand;
 import com.study.jsp.command.BReplyVIewCommand;
 import com.study.jsp.command.BSearchCommand;
 import com.study.jsp.command.BWriteCommand;
+import com.study.jsp.command.loginOk;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -65,24 +68,8 @@ public class FrontController extends HttpServlet {
 			curPage = (int)session.getAttribute("cpage");
 		}
 		
-		if (com.equals("/joinOk.do")) {
-			command.execute(request, response);
-			viewPage = "joinOk.jsp";
-			DispatcherviewPage(request, response, viewPage);
-					
-		} else if (com.equals("/loginOk.do")) {
-			command.execute(request, response);
-			viewPage = "loginOk.jsp";
-			DispatcherviewPage(request, response, viewPage);
-			
-		} else if (com.equals("/modifyOk.do")) {
-			command.execute(request, response);
-			viewPage = "modifyOk.jsp";
-			DispatcherviewPage(request, response, viewPage);
-			
-		} else if (com.equals("/logoutOk.do")) {
-			
-		} else if (com.equals("/write_view.do")) {
+		
+		if (com.equals("/write_view.do")) {
 			viewPage = "write_view.jsp";
 			DispatcherviewPage(request, response, viewPage);
 			
@@ -149,6 +136,21 @@ public class FrontController extends HttpServlet {
 		} else if(com.equals("/download.do")) {
 			command = new BDownloadCommand();
 			command.execute(request, response);
+			
+		} else if (com.equals("/joinOk.do")) {
+			joinOk service = new joinOk();
+			service.execute(request, response);
+			
+		} else if (com.equals("/loginOk.do")) {
+			loginOk service = new loginOk();
+			service.execute(request, response);
+			
+		} else if (com.equals("/modifyOk.do")) {
+			modifyOk service = new modifyOk();
+			service.execute(request, response);
+			
+		} else if (com.equals("/logoutOk.do")) {
+			logoutOk(request, response);
 		}
 	}
 

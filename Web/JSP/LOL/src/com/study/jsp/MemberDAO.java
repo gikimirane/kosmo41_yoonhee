@@ -33,7 +33,15 @@ public class MemberDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String query = "insert into members values (?, ?, ?, ?, ?, ?)";
+		String query = "insert into members values (?, ?, ?, ?, SYSDATE, ?)";
+		
+		
+		System.out.println(dto.getId());
+		System.out.println(dto.getPw());
+		System.out.println(dto.getName());
+		System.out.println(dto.geteMail());
+		System.out.println(dto.getAddress());
+		
 		
 		try {
 			con = getConnection();
@@ -42,8 +50,7 @@ public class MemberDAO {
 			pstmt.setString(2, dto.getPw());
 			pstmt.setString(3, dto.getName());
 			pstmt.setString(4, dto.geteMail());
-			pstmt.setTimestamp(5, dto.getrDate());
-			pstmt.setString(6, dto.getAddress());
+			pstmt.setString(5, dto.getAddress());
 			pstmt.executeUpdate();
 			ri = MemberDAO.MEMBER_JOIN_SUCCESS;
 		} catch (Exception e) {

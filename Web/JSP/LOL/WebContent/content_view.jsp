@@ -13,6 +13,7 @@ function onDownload(bId) {
 </script>
 </head>
 <body>
+	<center>
 	<iframe id="ifrm_filedown" style="position:absoluste; z-index:1; visibility : hidden;"></iframe>
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 	<tr>
@@ -52,6 +53,7 @@ function onDownload(bId) {
 		</td>
 	</tr>
 	</table>
+	</center>
 
 </body>
 </html>

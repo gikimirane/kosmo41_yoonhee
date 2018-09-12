@@ -16,8 +16,7 @@ public class joinOk implements service {
 	}
 
 	@Override
-	public void execute(HttpServletRequest request,
-			            HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
 			           throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=UTF-8");
@@ -28,6 +27,18 @@ public class joinOk implements service {
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberDTO dto = new MemberDTO();
 		HttpSession session = request.getSession();
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String eMail = request.getParameter("eMail");
+		String address = request.getParameter("address");
+		
+		dto.setId(id);
+		dto.setPw(pw);
+		dto.setName(name);
+		dto.seteMail(eMail);
+		dto.setAddress(address);
 		
 		dto.setrDate(new Timestamp(System.currentTimeMillis()));
 		if(dao.confirmId(dto.getId()) == MemberDAO.MEMBER_EXISTENT) {

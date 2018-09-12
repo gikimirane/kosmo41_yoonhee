@@ -22,15 +22,15 @@
 <script language="JavaScript" src="members.js"></script>
 </head>
 <body>
-	<form target="_blank" action="joinOk" method="POST" name="reg_frm" style="text-align:justify">
+	<form target="_blank" action="joinOk.do" method="POST" name="reg_frm" style="text-align:justify">
 		아이디 : <input type="text" name="id" size="20"><br>
 		비밀번호 : <input type="password" name="pw" size="20"><br>
 		비밀번호 확인 : <input type="password" name="pw_check" size="20"><br>
 		이름 : <input type="text" name="name" size="20"><br>
 		메일 : <input type="text" name="eMail" size="20"><br>
 		주소 : <input type="text" name="address" size="50"><br>
-		<input type="button" type="submit" value="Join" onclick="javascript:window.location='joinResult.jsp'" > &nbsp;&nbsp;&nbsp;
-		<input type="reset"  type="submit" value="Login" onclick="javascript:window.location='login.do'">
+		<input type="submit" value="Join"> &nbsp;&nbsp;&nbsp;
+		<input type="reset" value="Login" onclick="javascript:window.location='login.jsp'">
 	</form>
 	
 	<!-- Optional JavaScript -->

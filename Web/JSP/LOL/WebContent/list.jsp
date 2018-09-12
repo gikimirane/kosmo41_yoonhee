@@ -51,12 +51,11 @@
         <a class="nav-link disabled" href="#">☎02-1234-5678</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-sm btn-outline-secondary" type="submit"
-      	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
-      <button class="btn btn-sm btn-outline-secondary" type="submit"
-      	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </form>
+    <form class="form-inline my-2 my-lg-0"></form>
+    <button class="btn btn-sm btn-outline-secondary"
+      	onclick="javascript:window.location.href='login.jsp'; return false;">로그인</button> &nbsp;
+      <button class="btn btn-sm btn-outline-secondary"
+      	onclick="javascript:window.location.href='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
 </nav>
  	
@@ -90,22 +89,30 @@
 			<td>${dto.bFilename}</td>
 		</tr>
 		</c:forEach>
+		
 		<tr>
-			<td colspan="5">
-      		<div id="searchform" align="center">
-      			<form action="list.do" method="get">
-      				<select name="listselect" class="btn btn-sm btn-outline-secondary">
-      					<option value="jm">제목</option>
-      					<option value="ny">내용</option>
-      				</select>
-      				<input class="btn btn-sm btn-outline-secondary" type="text" name="listname" placeholder="Search" aria-label="Search" />
-      				<button class="btn btn-sm btn-outline-secondary" type="submit">검색</button>
-      				<button class="btn btn-sm btn-outline-secondary" type="submit"><a href="write_view.do">글작성</a></button></td>
-      			</form>
-      		</div>
+		<td colspan="7">
+		<div class='aside_menu' align='center'>
+			<form name='frm' method='get' action='./list.jsp'>
+				<aside style='float: right;'>
+					<select name='list_select' class="btn btn-sm btn-outline-secondary">
+						<option value='none'>전체 목록</option>
+						<option value='bName'>이름</option>
+						<option value='bTitle'>제목</option>
+						<option value='bContent'>내용</option>
+					</select>&nbsp;
+<!--       		<div id="searchform" align="center">
+      			<form action="list.do" method="get">  -->
+      				<input class="btn btn-sm btn-outline-secondary" type="text" name="list_name" value='' placeholder="Search" aria-label="Search" />&nbsp;
+      				<button class="btn btn-sm btn-outline-secondary" type="submit">검색</button>&nbsp;
+      					<button class="btn btn-sm btn-outline-secondary" type="submit"><a href="write_view.do">글작성</a></button></td>&nbsp;
+      			</aside>
+      		</form>
+      		<div class='menu_line' style='clear: both;'></div>
+      	</div>
 		</tr>
 		<tr>
-			<td colspan="5">
+ 			<td colspan="7">
 			
 			<!-- 처음 -->
 			<c:choose>

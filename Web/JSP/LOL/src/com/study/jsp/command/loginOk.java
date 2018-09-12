@@ -1,4 +1,4 @@
-package com.study.jsp;
+package com.study.jsp.command;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.study.jsp.MemberDAO;
+import com.study.jsp.MemberDTO;
+import com.study.jsp.service;
+
 public class loginOk implements service {
 
 	public loginOk() {
@@ -15,22 +19,25 @@ public class loginOk implements service {
 	}
 
 	@Override
-	public void execute(HttpServletRequest request,
-            HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
 		System.out.println("loginOk");
 		
+		PrintWriter writer = response.getWriter();
+		MemberDTO dto = new MemberDTO();
+		MemberDAO dao = MemberDAO.getInstance();
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-		MemberDAO dao = MemberDAO.getInstance();
-		MemberDTO dto = dao.getMember(id);
-		int checkNum = dao.userCheck(id, pw);
+/*		dto.setId(id);
+		dto.setPw(pw);*/
 		
-		PrintWriter writer = response.getWriter();
+		MemberDTO dto1 = dao.getMember(id);
+		int checkNum = dao.userCheck(id, pw);
 		
 		if(checkNum == -1) {
 			

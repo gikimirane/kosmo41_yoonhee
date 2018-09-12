@@ -51,15 +51,14 @@
         <a class="nav-link disabled" href="#">☎02-1234-5678</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0"></form>
 <%--  <input class="form-control mr-sm-2" type="text" name="Id" placeholder="Id" aria-label="Id" value="<% if(session.getAttribute("id") != null) out.println(session.getAttribute("id")); %>">
 	  <input class="form-control mr-sm-2" type="Password" name="pw" placeholder="Password" aria-label="Password"> --%>
 <!--  <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a> -->
-      <button class="btn btn-sm btn-outline-secondary" type="submit"
-      	onclick="javascript:window.location='login.jsp'; return false;">로그인</button> &nbsp;
-      <button class="btn btn-sm btn-outline-secondary" type="submit"
-      	onclick="javascript:window.location='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </form>
+    <button class="btn btn-sm btn-outline-secondary" 
+      	onclick="javascript:window.location.href='login.jsp'; return false;">로그인</button> &nbsp;
+      <button class="btn btn-sm btn-outline-secondary"
+      	onclick="javascript:window.location.href='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
 </nav>
  	
