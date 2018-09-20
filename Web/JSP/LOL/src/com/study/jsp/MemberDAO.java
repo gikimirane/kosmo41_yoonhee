@@ -181,6 +181,7 @@ public class MemberDAO {
 	}
 	
 	public int updateMember(MemberDTO dto) {
+		
 		int ri = 0;
 		
 		Connection con = null;
@@ -194,7 +195,7 @@ public class MemberDAO {
 			pstmt.setString(2, dto.geteMail());
 			pstmt.setString(3, dto.getAddress());
 			pstmt.setString(4, dto.getId());
-			
+			System.out.println(dto.getPw()+", " +dto.geteMail()+", " +dto.getAddress()+"," +dto.getId());
 			ri = pstmt.executeUpdate();
 			
 		} catch (Exception e) {

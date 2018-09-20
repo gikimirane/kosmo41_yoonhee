@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+String id = (String)session.getAttribute("id");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,14 +53,16 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">☎02-1234-5678</a>
+        <a class="nav-link disabled" href="#">☎건의사항은 반장님께</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0"></form>
-    <button class="btn btn-sm btn-outline-secondary"
-      	onclick="javascript:window.location.href='login.jsp'; return false;">로그인</button> &nbsp;
-      <button class="btn btn-sm btn-outline-secondary"
-      	onclick="javascript:window.location.href='join.jsp';">회원가입</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h5><%= id %>님 안녕하세요.</h5>&nbsp;&nbsp;
+	<form action="logoutOk.do" method="post">
+		<input type="submit" class="btn btn-sm btn-outline-secondary" value="로그아웃">&nbsp;
+		<input type="button" class="btn btn-sm btn-outline-secondary" value="정보수정"
+				onclick="javascript:window.location.href='infomodify.jsp'"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</form>
   </div>
 </nav>
  	

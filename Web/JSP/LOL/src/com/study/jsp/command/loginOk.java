@@ -27,14 +27,14 @@ public class loginOk implements service {
 		System.out.println("loginOk");
 		
 		PrintWriter writer = response.getWriter();
-		MemberDTO dto = new MemberDTO();
 		MemberDAO dao = MemberDAO.getInstance();
+		MemberDTO dto = new MemberDTO();
 		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
-/*		dto.setId(id);
-		dto.setPw(pw);*/
+		System.out.println(id);
+		System.out.println(pw);
 		
 		MemberDTO dto1 = dao.getMember(id);
 		int checkNum = dao.userCheck(id, pw);

@@ -11,14 +11,28 @@ public class MemberDTO {
 	private Timestamp rDate;
 	private String address;
 	
-//	public MemberDTO(String id, String pw, String name, String eMail, String rDate, String address) {
-//	this.id = id;
-//	this.pw = pw;
-//	this.name = name;
-//	this.eMail = eMail;
-//	this.rDate = rDate;
-//	this.address = address;
-//}
+	public MemberDTO() 
+	{
+		
+	}
+	public MemberDTO(String id, String pw, String name, String eMail, Timestamp rDate, String address) 
+	{
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.eMail = eMail;
+		this.rDate = rDate;
+		this.address = address;
+	}
+	
+	public MemberDTO( String id, String pw, String name, String eMail, String address) 
+	{
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.eMail = eMail;
+		this.address = address;
+	}
 	
 	
 	public String getId() {

@@ -25,7 +25,7 @@ import com.study.jsp.command.BWriteCommand;
 import com.study.jsp.command.loginOk;
 
 @WebServlet("*.do")
-public class FrontController extends HttpServlet {
+public class FrontController<logoutOk> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public FrontController() {
@@ -50,6 +50,8 @@ public class FrontController extends HttpServlet {
 			throws ServletException, IOException
 	{
 		request.setCharacterEncoding("UTF-8");
+		
+		System.out.println("action");
 		
 		String viewPage = null;
 		BCommand command = null;
@@ -127,6 +129,10 @@ public class FrontController extends HttpServlet {
 			viewPage = "home.jsp";
 			DispatcherviewPage(request, response, viewPage);
 			
+		} else if(com.equals("/main.do")) {
+			viewPage = "main.jsp";
+			DispatcherviewPage(request, response, viewPage);
+			
 		} else if(com.equals("/search.do")) {
 			command = new BSearchCommand();
 			command.execute(request, response);
@@ -145,24 +151,24 @@ public class FrontController extends HttpServlet {
 			loginOk service = new loginOk();
 			service.execute(request, response);
 			
-		} else if (com.equals("/modifyOk.do")) {
-			modifyOk service = new modifyOk();
+		} else if (com.equals("/infomodifyOk.do")) {
+			infomodifyOk service = new infomodifyOk();
 			service.execute(request, response);
 			
 		} else if (com.equals("/logoutOk.do")) {
-			logoutOk(request, response);
+			logout(request, response);
 		}
 	}
 
-	private void logoutOk(HttpServletRequest request, HttpServletResponse response)
+	private void logout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		System.out.println("logoutOK");
 		response.setContentType("text/html; charset=UTF-8");
-		
 		HttpSession session = request.getSession();
-		
+		System.out.println(session);
 		session.invalidate();
-		response.sendRedirect("loginOk.jsp");
+		response.sendRedirect("home.jsp");
 	}
 	
 	private void DispatcherviewPage(HttpServletRequest request, HttpServletResponse response, String viewPage)

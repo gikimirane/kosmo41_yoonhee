@@ -48,7 +48,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">☎02-1234-5678</a>
+        <a class="nav-link disabled" href="#">☎건의사항은 반장님께</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0"></form>
@@ -77,8 +77,8 @@
 	 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
           <h1 class="display-4 font-italic">KOSMO 41기 공식 홈페이지</h1>
-          <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+          <p class="lead my-3">This is a space to help you make it together!</p>
+          <p class="lead mb-0"><a href="https://drive.google.com/drive/folders/1g1j2-A3NIJxSsx13V6jx7P-XzSFu_Jvk" class="text-white font-weight-bold">Continue Google Drive reading...</a></p>
         </div>
       </div>
       
@@ -90,9 +90,9 @@
               <h3 class="mb-0">
                 <a class="text-dark" href="#">Lunch Menu</a>
               </h3>
-              <div class="mb-1 text-muted">Nov 12</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
+              <div class="mb-1 text-muted">Sept. 17</div>
+              <p class="card-text mb-auto">This is for 철언님. Thank you so much.</p>
+              <a href="#">Continue Menu reading..</a>
             </div>
             <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
           </div>
@@ -104,9 +104,9 @@
               <h3 class="mb-0">
                 <a class="text-dark" href="#">Homework</a>
               </h3>
-              <div class="mb-1 text-muted">Nov 11</div>
+              <div class="mb-1 text-muted">Sept. 24</div>
               <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
+              <a href="https://drive.google.com/drive/folders/1N02o8FU7jvaVf8mzOErPZKDLKJy0i1TU">Continue Homework reading..</a>
             </div>
             <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
           </div>

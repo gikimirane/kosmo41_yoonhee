@@ -15,8 +15,7 @@ public class loginOk implements service {
 	}
 
 	@Override
-	public void execute(HttpServletRequest request,
-            HttpServletResponse response)
+	public void execute(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=UTF-8");
